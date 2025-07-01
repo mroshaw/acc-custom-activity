@@ -1,0 +1,12 @@
+<!--
+    Creates a new palette in the workflow UI, restricted to admins
+    This needs to be placed in the 'xtk:workflow' input form, as a direct child of the container named
+    'palette'. Look for this node: <container name="palette">
+-->
+<container applicableIf="hasNamedRight('admin')=true" img="xtk:new.png" label="Custom"
+    name="customPalette">
+    <!-- Sample custom activity -->
+    <input img="cus:customActivity16x16.png" label="Custom Activity"
+        xpath="customActivity" />
+
+</container>
