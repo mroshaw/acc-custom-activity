@@ -43,7 +43,7 @@ The solution involves creating new objects and updating existing, out of the box
 | cus:customActivity48.48.png | Image           | New            | Used in the workflow editor itself for each new activity instance. |
 | cus:customActivity.js       | JavaScript Code | New            | Code that underpins all of the core functionality of the new activity. |
 | cus:workflow                | Workflow schema | New            | Extends the `xtk:workflow` schema with attributes, elements and methods required by the new activity. |
-|                             | Input Form      | New            | Provides the UI form that exposes and manages the user interface for the activity, when it's being configured in the workflow editor. |
+| cus:customActivity          | Input Form      | New            | Provides the UI form that exposes and manages the user interface for the activity, when it's being configured in the workflow editor. |
 | xtk:workflow                | Input Form      | Updated        | Small change to add the new activity to the workflow palette, and provides a reference to the new activity UI form. |
 
 # Implementation / Deployment Steps
