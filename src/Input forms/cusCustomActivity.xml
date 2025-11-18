@@ -1,0 +1,65 @@
+<form _cs="Custom Activity (cus)" 
+     entitySchema="xtk:form" img="xtk:form.png" label="Custom Activity" 
+     name="customActivity"
+     namespace="cus" xtkschema="xtk:form">
+
+    <!-- Example Input Form for a custom workflow activity -->
+    <!-- You must add a reference to this form in the "xtk:workflow" input form -->
+    <form name="customActivityForm">
+        <container type="notebook">
+            <container img="cus:customActivity16x16.png" label="Custom Activity">
+                <container img="xtk:properties.png" label="Settings" type="frame">
+
+                    <!-- Allow the user to change the activity label -->
+                    <input xpath="@label"/>
+
+                    <!-- Example ENUM parameter -->
+                    <input xpath="@activityAction"/>
+                    <static label="Example ENUM / dropdown parameter that will be output to the workflow log when the activity is executed."
+                            type="help"/>
+
+                    <!-- Allow user to toggle the Errors transition -->
+                    <input label="Process errors" type="checkbox" xpath="transitions/error[@name='error']/@enabled"/>
+                    <static label="Allows the user to toggle the 'Error' transition."
+                            type="help"/>
+
+                    <!-- Allow user to toggle debugging -->
+                    <input label="Enable debugging" type="checkbox" xpath="@enableDebugging"/>
+                    <static label="Allows the user to toggle debugging."
+                            type="help"/>
+                </container>
+
+                <container img="xtk:properties.png" label="Activity Properties" type="frame">
+
+                    <!-- Example string parameter -->
+                    <input xpath="@messageText"/>
+                    <static label="Example string parameter that will be output to the workflow log when the activity is executed."
+                            type="help"/>
+
+                    <!-- Example number parameter -->
+                    <input xpath="@messageTextLength"/>
+                    <static label="Example number parameter that will be output to the workflow log when the activity is executed."
+                            type="help"/>
+
+                    <!-- Attribute alias name to use to query data context -->
+                    <input xpath="@queryAttributeAlias"/>
+                    <static label="Used in the activity to query current data context and output the given attribute values."
+                            type="help"/>
+
+                    <!-- Example of 0:m parameters -->
+                    <input editable="true" label="Pairs" type="list" xpath="pairsList/pairs"
+                           zoom="false">
+                        <input xpath="@paramLabel"/>
+                        <input xpath="@paramValue"/>
+                    </input>
+                    <static label="Example of dynamic 0:m parameter list. Pairs will be output to the workflow log when the activity is executed."
+                            type="help"/>
+                </container>
+            </container>
+
+            <!-- Add the standard 'Advanced' tab -->
+            <container ref="xtk:workflow:lib/tabs/advancedActivityPage"/>
+        </container>
+    </form>
+
+</form>
