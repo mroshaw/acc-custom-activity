@@ -74,13 +74,13 @@ To deploy the framework sample:
 
 1. Go to Administration > Configuration > JavaScript codes.
 2. Create a new record.
-3. Use the name and description: "cus:cusCustomActivity.js".
-4. Copy and paste the code from the `src/JavaScript codes/custom_activity.js` file.
+3. Use the name and description: "cus:customActivity.js".
+4. Copy and paste the code from the "src/JavaScript codes/cusCustomActivity.js" file.
 5. Save the record.
 
 ## Deploy Schemas
 
-This solution works by extending the `xtk:workflow` schema with a new schema instance called `cus:workflow`. If you've already extended this schema, you will want to manually merge the new schema XML into your configuration.
+This solution works by extending the `xtk:workflow` schema with a new schema instance called `cus:workflow`. If you've already extended this schema, you can either manually merge the new schema XML into your configuration or you can extend `xtk:workflow` again into a dedicated schema.
 
 Steps to deploy the schema changes:
 
@@ -94,7 +94,7 @@ Steps to deploy the schema changes:
 8. Use label: "Workflow".
 9. Use description: "Custom workflow extensions".
 10. Click "Save".
-11. Copy and paste the XML from the `src/Data schemas/workflow_schema.xml` file.
+11. Copy and paste the XML from the "src/Data schemas/cusWorkflow.xml" file.
 12. Save the record.
 
 ## Deploy Input Forms
@@ -108,12 +108,19 @@ You should be particularly careful when modifying `xtk:workflow` as any syntax e
 
 The steps to deploy the framework form changes are as follows:
 
+### Deploy New Activity Form
+
 1. Go to Administration > Configuration > Input forms.
-2. Find the `xtk:workflow` entry and double click to open it.
-3. Search for the container named "palette". (Search for this string: `<container name="palette">`).
-4. Copy and paste the XML from `src/Input forms/workflow_palette_input_form.xml` as a direct child of this node.
-5. Search for the container named "subforms". Search for this string: `<container name="subforms">`).
-6. Copy and paste the XML from `src/Input forms/custom_activity_input_form.xml` as a direct child of this node.
+2. Create a new entry named "cus:CustomActivity".
+3. Copy and paste the XML from the "src/Data schemas/cusCustomActivity.xml" and save the record.
+
+### Configure `xtk:workflow` Form
+
+1. Find the `xtk:workflow` entry and double click to open it.
+2. Search for the container named "palette". (Search for this string: `<container name="palette">`).
+3. Copy and paste the appropriate XML from "src/Input forms/xtkWorkflow.xml" as a direct child of this node.
+4. Search for the container named "subforms". Search for this string: `<container name="subforms">`).
+5. Copy and paste the appropriate XML from "src/Input forms/xtkWorkflow.xml" as a direct child of this node.
 
 ## Final Steps and Testing
 
@@ -129,7 +136,7 @@ Once you're happy, you can finalise the deployment and test your new activity by
 6. Drag this new activity into your workflow, connect up to the Start and End, then double click it.
 7. You should see the input form for the new activity:![](https://github.com/mroshaw/acc-custom-activity/blob/main/Documentation/Images/ExampleActivityUi.png?raw=true)
 8. Set the parameters, and add several entries in the "Pairs" list.
-9. If you want to test the data query context, connect up a "Query" activity and ensure it's adding additional data that includes an attribute aliased to the value you specify in "Query Attribute Alias".
+9. If you want to test the data query context, connect up a "Query" activity and ensure it's adding additional data that includes an attribute aliased to the value you specify in "Query Attribute Alias":![](https://github.com/mroshaw/acc-custom-activity/blob/main/Documentation/Images/WorkflowWithActivity.png?raw=true)
 10. Click Ok to save.
 11. Run the workflow.
 12. Right click the new activity and select "Display logs".
