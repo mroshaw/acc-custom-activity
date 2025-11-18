@@ -111,7 +111,7 @@ The steps to deploy the framework form changes are as follows:
 ### Deploy New Activity Form
 
 1. Go to Administration > Configuration > Input forms.
-2. Create a new entry named "cus:CustomActivity".
+2. Create a new entry named "cus:customActivity".
 3. Copy and paste the XML from the "src/Data schemas/cusCustomActivity.xml" and save the record.
 
 ### Configure `xtk:workflow` Form
